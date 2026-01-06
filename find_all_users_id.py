@@ -9,4 +9,8 @@ def find_all_users_id(data: dict)->list:
     Returns:
         list: List containing all the users id
     """
-    return
+    a = []
+    for b in data.get("users", []):
+        if "id" in b:
+            a.append(b["id"])
+    return a
