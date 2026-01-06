@@ -11,4 +11,15 @@ def find_user_message_count(data: dict, users_id: list)->dict:
     Returns:
         dict: Number of messages of the users
     """
-    return
+    user_message_count = {}
+
+    for user_id in users_id:
+        user_message_count[user_id] = 0
+
+    for message in data["messages"]:
+        from_id = message["from_id"]
+        if from_id in user_message_count:
+            user_message_count[from_id] += 1
+
+    return user_message_count
+    
